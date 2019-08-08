@@ -23,7 +23,11 @@ def register(request):
                     password = password,
                     )
                 user.save()
-                return redirect('login')
+                user = auth.authenticate(username=username, password=password)
+                if user is not None:
+                    auth.login(request, user)
+                    return redirect('profile_edit')
+                else return redirect('login')
         else:
             return render(request, 'register.html', {'error': 'Passwords do not match'})
     else:
