@@ -1,3 +1,71 @@
+:root {
+    /* colors */
+    --green: rgb(30, 215, 96);
+    --red: rgb(215, 30, 55);
+    --light-black: rgb(40, 40, 40);
+    --black: rgb(24, 24, 24);
+    --grey: rgb(170, 170, 170);
+    --sand: rgb(200, 200, 200);
+    --white: rgb(255, 255, 255);
+
+    /* spacing */
+    --padding-xs: 5px;
+    --padding-sm: 10px;
+    --padding: 15px;
+    --padding-lg: 30px;
+    --padding-xl: 60px;
+
+    --margin-xs: 5px;
+    --margin-sm: 10px;
+    --margin: 15px;
+    --margin-lg: 30px;
+    --margin-xl: 60px;
+}
+
 body {
-    background: lightblue;
+	background-color: lightblue;
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+}
+
+.header-li {
+    background-color: lightblue;
+    padding: 1em;
+    border: 1px solid black;
+}
+
+.header-nav a {
+    color: black;
+}
+
+a:hover {
+	color: var(--white);
+}
+
+.header-nav {
+	background: lightsalmon;
+	padding: var(--padding-sm);
+	color: var(--grey);
+	border-bottom: 1px solid var(--black);
+	display: flex;
+	flex-flow: row wrap;
+    align-items: left;
+}
+
+.header-nav a {
+  text-decoration: none;
+  margin: var(--margin-sm);
+}
+
+.header-nav section {
+  margin-left: auto;
+}
+
+.header-nav h1 {
+  color: var(--green);
+}
+
+.header-nav li {
+    display: inline-block;
+    background-color: lightblue;
 }
