@@ -6,20 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="{% static 'scripts/app.js' %}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lobster+Two&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'styles/main.css' %}" />
-    <title>Friendly</title>
+    <title>NewHere</title>
 </head>
 <body>
     <nav class='header-nav'>
-        <a href=''>Friendly</a>
+        <a class='home-page-a' href='{% url "home" %}'>NewHere</a>
         <section>
             <ul class>
-                <li class='header-li'><a href=''>Profile</a></li>
-                <li class='header-li'><a href=''>Matches</a></li>
-                <li class='header-li'><a href=''>Signup</a></li>
-                <li class='header-li'><a href=''>Login</a></li>
-                <li class='header-li'><a href=''>Logout</a></li>
-                <li class='header-li'><a href=''>Profile</a></li>
+
+        {% if user.is_authenticated %}
+            Welcome, user.first_name
+                <li class='header-li'><a href='{% url "profile" %}'>Profile</a></li>
+                <li class='header-li'><a href='{% url "match_list" %}'>Matches</a></li>
+                <li class='header-li'><a href='{% url "logout" %}'>Logout</a></li>
+        {% else %}
+                <li class='header-li'><a href='{% url "register" %}'>Signup</a></li>
+                <li class='header-li'><a href='{% url "login" %}'>Login</a></li>
+
+        {% endif %}
             </ul>
         </section>
     </nav>
