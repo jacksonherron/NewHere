@@ -9,7 +9,7 @@ class Profile(models.Model):
     date_of_birth = models.DateField(auto_now=False, auto_now_add=False)
     gender_identity = models.CharField(max_length=100)
     languages = ArrayField(models.CharField(max_length=100))
-    zip_code = models.PositiveIntegerField(max_length=5)
+    zip_code = models.PositiveIntegerField()
     personal_description = models.TextField(null=True, blank=True)
     identities = ArrayField(models.CharField(max_length=100, null=True, blank=True), size=5, null=True, blank=True)
     interests = ArrayField(models.CharField(max_length=100, null=True, blank=True), size=10, null=True, blank=True)
