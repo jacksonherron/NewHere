@@ -68,7 +68,6 @@ a:hover {
   margin: var(--margin-sm);
 }
 
-
 .header-nav section {
   margin-left: auto;
 }
@@ -80,4 +79,9 @@ a:hover {
 .header-nav li {
   display: inline-block;
   background-color: lightblue;
+}
+
+.profile-image {
+  min-width: 20vw;
+  max-width: 20vw;
 }
