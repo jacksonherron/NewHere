@@ -19,20 +19,21 @@ def home(request):
 # @login_required
 def profile(request):
     user = request.user
-    profile = Profile.objects.get(user=user)
+    profile = Profile.objects.get(user=request.user)
     return render(request, 'profile.html', {'profile': profile})
 
 # @login_required
 def profile_edit(request):
+    profile = Profile.objects.get(user=request.user)
     if request.method == 'POST':
-        form = ProfileForm(request.POST)
+        form = ProfileForm(request.POST, instance=profile)
         if form.is_valid():
             profile = form.save(commit=False)
             profile.user = request.user
             profile.save()
             return redirect('profile')
     else:
-        form = ProfileForm()
+        form = ProfileForm(instance=profile)
         return render(request, 'profile_form.html', {'form': form})
 
 
