@@ -11,15 +11,14 @@
 </head>
 <body>
     <nav class='header-nav'>
-        <a href=''>Friendly</a>
+        <a href='{% url "home" %}'>Friendly</a>
         <section>
             <ul class>
-                <li class='header-li'><a href=''>Profile</a></li>
-                <li class='header-li'><a href=''>Matches</a></li>
-                <li class='header-li'><a href=''>Signup</a></li>
-                <li class='header-li'><a href=''>Login</a></li>
-                <li class='header-li'><a href=''>Logout</a></li>
-                <li class='header-li'><a href=''>Profile</a></li>
+                <li class='header-li'><a href='{% url "profile" %}'>Profile</a></li>
+                <li class='header-li'><a href='{% url "match_list" %}'>Matches</a></li>
+                <li class='header-li'><a href='{% url "register" %}'>Signup</a></li>
+                <li class='header-li'><a href='{% url "login" %}'>Login</a></li>
+                <li class='header-li'><a href='{% url "logout" %}'>Logout</a></li>
             </ul>
         </section>
     </nav>
