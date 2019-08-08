@@ -28,6 +28,12 @@ body {
 	margin: 0;
 }
 
+.welcome-p {
+  color: black;
+  font-size: 2em;
+  padding-right: 1em;
+}
+
 .home-page-a {
   font-family: 'Lobster Two', cursive, sans-serif;
   font-size: 3em;
