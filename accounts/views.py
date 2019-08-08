@@ -7,6 +7,7 @@ def register(request):
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         email = request.POST['email']
+        username = email
         password = request.POST['password']
         password2 = request.POST['password2']
 
@@ -18,6 +19,7 @@ def register(request):
                     first_name = first_name,
                     last_name = last_name,
                     email = email,
+                    username = username,
                     password = password,
                     )
                 user.save()
