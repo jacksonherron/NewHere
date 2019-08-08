@@ -15,10 +15,10 @@
     <p1>Name: {{profile.user.first_name}} {{profile.user.last_name}} </br></p1>
     <p1>Gender Identity: {{profile.gender_identity}} </br></p1>
     <p1>Zip Code: {{profile.zip_code}} </br></p1>
-    <p1>Languages: {{ profile.languages }}</br><p1>
-    <p1>Identities: {{profile.identities}} </br></p1>
-    <p1>Interests: {{profile.interests}} </br></p1>
-    <p1>Religions: {{profile.religions}} </br></p1>
+    <p1>Languages: {{ profile.languages|join:', '}}</br><p1>
+    <p1>Ethnic & National Identities: {{profile.identities|join:', '}} </br></p1>
+    <p1>Interests: {{profile.interests|join:', '}} </br></p1>
+    <p1>Religion: {{profile.religions|join:', '}} </br></p1>
     <p1>Personal Description: {{profile.personal_description}} </br></p1>
     <p1>Profile Image: <img src="{{profile.profile_image.url}}"/> </br></p1>
 </section>
