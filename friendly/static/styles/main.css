@@ -23,9 +23,43 @@
 }
 
 body {
+  background-image: url('../pictures/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 	background-color: lightblue;
 	font-family: 'Roboto', sans-serif;
-	margin: 0;
+  margin: 0;
+  max-height: 100vh;
+  overflow-y: scroll;
+}
+
+.profile-form-div {
+  background: rgba(255,255, 255,.6);
+  max-width: 30vw;
+  border: 1px solid black;
+  border-radius: 10px;
+  /* margin: 0 auto; */
+}
+
+.form-section {
+  background: rgba(255,255, 255,.6);
+  max-width: 40vh;
+  max-width: 30vw;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+/* .edit-button {
+
+}
+
+.save-edit-button {
+
+} */
+
+.profile-p {
+  font-size: 2rem;
+  padding-top: 1em;
 }
 
 .welcome-p {
