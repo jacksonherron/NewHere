@@ -14,7 +14,7 @@ class Profile(models.Model):
     identities = ArrayField(models.CharField(max_length=100, null=True, blank=True), size=5, null=True, blank=True)
     interests = ArrayField(models.CharField(max_length=100, null=True, blank=True), size=10, null=True, blank=True)
     religions = ArrayField(models.CharField(max_length=100, null=True, blank=True), size=3, null=True, blank=True)
-    profile_image = models.ImageField(upload_to='images/', null=True, blank=True, default='blank-profile-picture.png')
+    profile_image = models.ImageField(upload_to='images/', null=True, blank=True, default='images/blank-profile-picture.png')
 
     def __str__(self):
         return self.user.username
