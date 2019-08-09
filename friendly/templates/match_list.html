@@ -1,7 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1> hello </h1>
-{}
+{% if primary_matches is not None %}
+{% for match in primary_matches %}
 
+    <a href="{% url 'match_detail' pk=match.pk %}">
+        <p>{{match.user_2}}</p>
+    </a>
+
+{% endfor %}
+{% endif %}
+
+{% if secondary_matches is not None %}
+{% for match in secondary_matches %}
+
+    <a href="{% url 'match_detail' pk=match.pk %}">
+        <p>{{match.user_1}}</p>
+    </a>
+
+{% endfor %}
+{% else %}
+
+    <p>Sorry, You have no matches =(</p>
+
+{% endif %}
 {% endblock %}
