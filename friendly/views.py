@@ -26,8 +26,6 @@ def home(request):
         if profile:
             if profile.user != request.user:
                 break
-            else:
-                continue
     return render(request, 'home.html', {'profile': profile})
 
 @login_required
@@ -59,7 +57,25 @@ def profile_edit(request):
             form = ProfileForm()
         return render(request, 'profile_form.html', {'form': form})
 
-
+@login_required
+def match_create(request):
+    #Search for an existing match, if so validate it, otherwise create a new match
+    user_1 = Profile.objects.get(user=request.user)
+    user_2 = Profile.objects.get(id=request.POST.get('profile_id'))
+    print(user_1, user_2)
+    # return HttpResponse('Finished')
+    try:
+        match = Match.objects.get(user_2=user_1)
+    except:
+        match = None
+    if match:
+        match.validate = True
+        match.save()
+        return HttpResponse('New match!')
+    else:
+        new_match = Match(user_1=user_1, user_2=user_2)
+        new_match.save()
+        return HttpResponse('Match request received.')
 
 @login_required
 def match_list(request):
