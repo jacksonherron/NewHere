@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section>
+    <div class='profile-form-div'>
+        <h1>{{match_profile.user.first_name}} {{match_profile.user.last_name}}</h1>
+        <img class='profile-image' src="{{match_profile.profile_image.url}}"/>
+        <p class='profile-p'>You matched on: {{match.time_stamp}}</p>
+        <p class='profile-p'>Gender Identity: {{match_profile.gender_identity}}</p>
+        <p class='profile-p'>Identities: {{match_profile.identities|join:', '}}</p>
+        <p class='profile-p'>Zip Code: {{match_profile.zip_code}}</p>
+        <p class='profile-p'>Languages: {{match_profile.languages|join:', '}}</p>
+        <p class='profile-p'>Interests: {{match_profile.interests|join:', '}}</p>
+        <p class='profile-p'>Religion: {{match_profile.religions|join:', '}}</p>
+        <p class='profile-p'>Personal Description: {{match_profile.personal_description}}</p>
+    </div>
+    <div class='messages'>
+        {% if messages is not None %}
+        
+        {% endif %}
+        <button>Comment</button>
+    </div>
+</section>
+
+{% endblock %}

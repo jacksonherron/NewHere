@@ -60,7 +60,7 @@ def match_create(request):
     user_1 = Profile.objects.get(user=request.user)
     user_2 = Profile.objects.get(id=request.POST.get('profile_id'))
     try:
-        match = Match.objects.filter(user_1=user_2, user_2=user_1)
+        match = Match.objects.get(user_1=user_2, user_2=user_1)
     except:
         match = None
     if match:
@@ -87,4 +87,16 @@ def match_list(request):
 
 @login_required
 def match_detail(request, pk):
+    user = request.user
+    user_profile = Profile.objects.get(user=user)
     match = Match.objects.get(id=pk)
+    try:
+        messages = Message.objects.filter(match=match)
+    except:
+        messages = None
+    if match.user_1 == user_profile:
+        match_profile = match.user_2
+    else:
+        match_profile = match.user_1
+    return render(request, 'match_detail.html', {'match_profile': match_profile, 'match': match, 'messages': messages})
+    
