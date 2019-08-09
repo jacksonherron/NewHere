@@ -79,5 +79,7 @@ def match_create(request):
 
 @login_required
 def match_list(request):
-    matches = Match.object.all()
-    return render(request, 'match_list', {'matches': matches})
+    # matches = Match.object.all()
+    return render(request, 'match_list.html')
+
+# {'matches': matches}
