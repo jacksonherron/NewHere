@@ -3,6 +3,8 @@ from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
 from .forms import ProfileForm
 from .models import Profile, Match, Message
+from random import randint
+from django.db.models import Max
 
 # Create your views here.
 
@@ -14,7 +16,19 @@ def landing_page(request):
 
 @login_required
 def home(request):
-    return render(request, 'home.html')
+    max_id = Profile.objects.all().aggregate(max_id=Max("id"))['max_id']
+    while(True):
+        pk = randint(1, max_id)
+        try:
+            profile = Profile.objects.get(pk=pk)
+        except:
+            profile = None
+        if profile:
+            if profile.user != request.user:
+                break
+            else:
+                continue
+    return render(request, 'home.html', {'profile': profile})
 
 @login_required
 def profile(request):
@@ -45,6 +59,7 @@ def profile_edit(request):
         else:
             form = ProfileForm()
         return render(request, 'profile_form.html', {'form': form})
+
 
 
 @login_required
