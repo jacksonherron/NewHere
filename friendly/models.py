@@ -17,7 +17,7 @@ class Profile(models.Model):
     profile_image = models.ImageField(upload_to='images/', null=True, blank=True, default='images/blank-profile-picture.png')
 
     def __str__(self):
-        return self.user.username
+        return f'{self.user.first_name} {self.user.last_name}'
 
 class Match(models.Model):
     user_1 = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='primary_matches')
