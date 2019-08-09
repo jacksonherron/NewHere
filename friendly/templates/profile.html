@@ -14,7 +14,7 @@
         <p class='profile-p'>Interests: {{profile.interests|join:', '}}</p>
         <p class='profile-p'>Religion: {{profile.religions|join:', '}}</p>
         <p class='profile-p'>Personal Description: {{profile.personal_description}}</p>
-        <button class='edit-button'><a href ='edit'>Edit Profile</a></button>
+        <button class='profile-edit-button' onclick="window.location.href = 'edit/'">Edit Profile</button>
     </div>
         {% comment %} <p>Profile Image: <img class='profile-image' src="{{profile.profile_image.url}}"/></p> {% endcomment %}
 </section>
