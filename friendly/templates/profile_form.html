@@ -2,12 +2,12 @@
 
 {% block content %}
 
-<section class='form-section'>
+<section class='profile-form-section'>
     {% if form %}
         <form method='POST' class='profile-form'>
     {% csrf_token %}
             {{form.as_p}}
-            <button class='save-edit-button' type='submit'>save</button>
+            <button class='profile-save-button' type='submit'>save</button>
         </form>
     {% endif %}
 </section>
