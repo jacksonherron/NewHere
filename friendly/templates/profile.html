@@ -8,9 +8,9 @@
         <p class='profile-p'>Email: {{profile.user.email}}</p>
         <p class='profile-p'>Name: {{profile.user.first_name}} {{profile.user.last_name}}</p>
         <p class='profile-p'>Gender Identity: {{profile.gender_identity}}</p>
+        <p class='profile-p'>Identities: {{profile.identities|join:', '}}</p>
         <p class='profile-p'>Zip Code: {{profile.zip_code}}</p>
         <p class='profile-p'>Languages: {{ profile.languages|join:', '}}</p>
-        <p class='profile-p'>Identities: {{profile.identities|join:', '}}</p>
         <p class='profile-p'>Interests: {{profile.interests|join:', '}}</p>
         <p class='profile-p'>Religion: {{profile.religions|join:', '}}</p>
         <p class='profile-p'>Personal Description: {{profile.personal_description}}</p>
