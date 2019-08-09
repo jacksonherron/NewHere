@@ -2,18 +2,22 @@
 
 {% block content %}
 
-<h1>Connect with: {{profile.user.first_name}} {{profile.user.last_name}}</h1>
-<img class='profile-image' src="{{profile.profile_image.url}}"/></br>
-<p1>Languages: {{ profile.languages|join:', '}}</br><p1>
-<p1>Ethnic & National Identities: {{profile.identities|join:', '}} </br></p1>
-<p1>Gender Identity: {{profile.gender_identity}} </br></p1>
-<p1>Interests: {{profile.interests|join:', '}} </br></p1>
-<p1>Religion: {{profile.religions|join:', '}} </br></p1>
-<p1>Personal Description: {{profile.personal_description}} </br></p1>
-<p1>Zip Code: {{profile.zip_code}} </br></p1>
+<section>
+    <div class='match-carousel-div'>
+        <h1>Connect with: {{profile.user.first_name}} {{profile.user.last_name}}</h1>
+        <img class='profile-image' src="{{profile.profile_image.url}}"/>
+        <p class='profile-p'>Languages: {{ profile.languages|join:', '}}</p>
+        <p class='profile-p'>Ethnic & National Identities: {{profile.identities|join:', '}}</p>
+        <p class='profile-p'>Gender Identity: {{profile.gender_identity}}</p>
+        <p class='profile-p'>Interests: {{profile.interests|join:', '}}</p>
+        <p class='profile-p'>Religion: {{profile.religions|join:', '}}</p>
+        <p class='profile-p'>Personal Description: {{profile.personal_description}}</p>
+        <p class='profile-p'>Zip Code: {{profile.zip_code}}</p>
 
-<button class="connect-btn">Connect</button>
-<button class="pass-btn">Not right now</button>
+        <button class="connect-btn">Connect</button>
+        <button class="pass-btn">Not right now</button>
+    </div>
+<section>
 
 
 {% endblock %}
