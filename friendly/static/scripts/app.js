@@ -45,7 +45,10 @@ connectBtn.on('click', function(event){
             'profile_id': connectBtn.attr('id')
         },
         success: function(response){
-            $(response).insertAfter(connectBtn);
+            // Notify them of the response!!
+            connectBtn.append(response)
+            // ^^ This is just a placeholder for now...
+            setTimeout(() => window.location.reload(), 2000)
         }
     });
 });

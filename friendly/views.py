@@ -16,21 +16,20 @@ def landing_page(request):
 
 @login_required
 def home(request):
-    max_id = Profile.objects.all().aggregate(max_id=Max("id"))['max_id']
-    while(True):
-        pk = randint(1, max_id)
-        try:
-            profile = Profile.objects.get(pk=pk)
-        except:
-            profile = None
-        if profile:
-            if profile.user != request.user:
-                break
-    return render(request, 'home.html', {'profile': profile})
+    user_profile = Profile.objects.get(user=request.user)
+    other_profiles = Profile.objects.exclude(user=request.user)
+    primary_matches = user_profile.primary_matches.values_list('user_2', flat=True)
+    secondary_matches = user_profile.secondary_matches.filter(validate=True).values_list('user_1', flat=True)
+    print(primary_matches, secondary_matches)
+
+    for profile in other_profiles:
+        print(profile.id)
+        if (profile.id not in primary_matches) and (profile.id not in secondary_matches):
+            return render(request, 'home.html', {'profile': profile})
+    return render(request, 'home.html', {'profile': None})
 
 @login_required
 def profile(request):
-    user = request.user
     profile = Profile.objects.get(user=request.user)
     return render(request, 'profile.html', {'profile': profile})
 
@@ -79,7 +78,5 @@ def match_create(request):
 
 @login_required
 def match_list(request):
-    # matches = Match.object.all()
-    return render(request, 'match_list.html')
-
-# {'matches': matches}
+    matches = Match.object.all()
+    return render(request, 'match_list', {'matches': matches})
