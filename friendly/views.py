@@ -74,5 +74,7 @@ def match_create(request):
 
 @login_required
 def match_list(request):
-    matches = Match.object.all()
-    return render(request, 'match_list', {'matches': matches})
+    user = Profile.objects.get(user=request.user)
+    primary_matches = Match.objects.filter(user_1=user, validate=True)
+    secondary_matches = Match.objects.filter(user_2=user, validate=True)
+    return render(request, 'match_list.html', {'primary_matches': primary_matches, 'secondary_matches': secondary_matches})
