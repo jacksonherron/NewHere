@@ -3,7 +3,7 @@
 
 <section>
     <div class='profile-form-div'>
-        <h1>{{match_profile.user.first_name}} {{match_profile.user.last_name}}</h1>
+        <h1 class='profile-h1'>{{match_profile.user.first_name}} {{match_profile.user.last_name}}</h1>
         <img class='profile-image' src="{{match_profile.profile_image.url}}"/>
         <p class='profile-p'>You matched on: {{match.time_stamp}}</p>
         <p class='profile-p'>Gender Identity: {{match_profile.gender_identity}}</p>
@@ -18,7 +18,6 @@
         {% if messages is not None %}
         
         {% endif %}
-        <button>Comment</button>
     </div>
 </section>
 

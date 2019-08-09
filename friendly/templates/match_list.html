@@ -6,7 +6,7 @@
 {% for match in primary_matches %}
 
     <div class='matches'>
-        <a href="#">
+        <a href="{% url 'match_detail' pk=match.pk %}">
             <p>{{match.user_2}}</p>
             <p>You were matched on {{match.time_stamp}} </p>
         </a>
@@ -19,7 +19,7 @@
 {% for match in secondary_matches %}
 
     <div class='matches'>
-        <a href="#">
+        <a href="{% url 'match_detail' pk=match.pk %}">
             <p>{{match.user_1}}</p>
             <p>You were matched on {{match.time_stamp}} </p>
         </a>
