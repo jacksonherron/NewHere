@@ -12,33 +12,42 @@ def base(request):
 def landing_page(request):
     return render(request, 'landing_page.html')
 
-# @login_required
+@login_required
 def home(request):
     return render(request, 'home.html')
 
-# @login_required
+@login_required
 def profile(request):
     user = request.user
     profile = Profile.objects.get(user=request.user)
     return render(request, 'profile.html', {'profile': profile})
 
-# @login_required
+
+@login_required
 def profile_edit(request):
-    profile = Profile.objects.get(user=request.user)
+    if Profile.objects.filter(user=request.user).exists():
+        profile = Profile.objects.get(user=request.user)
+    else:
+        profile = False
     if request.method == 'POST':
-        form = ProfileForm(request.POST, instance=profile)
+        if profile: 
+            form = ProfileForm(request.POST, instance=profile)
+        else:
+            form = ProfileForm(request.POST)
         if form.is_valid():
             profile = form.save(commit=False)
             profile.user = request.user
             profile.save()
             return redirect('profile')
     else:
-        form = ProfileForm(instance=profile)
+        if profile: 
+            form = ProfileForm(instance=profile)
+        else:
+            form = ProfileForm()
         return render(request, 'profile_form.html', {'form': form})
 
 
-
-# @login_required
+@login_required
 def match_list(request):
     matches = Match.object.all()
     return render(request, 'match_list', {'matches': matches})
