@@ -18,9 +18,13 @@ def landing_page(request):
 def home(request):
     user_profile = Profile.objects.get(user=request.user)
     other_profiles = Profile.objects.exclude(user=request.user)
+    primary_matches = user_profile.primary_matches.values_list('user_2', flat=True)
+    secondary_matches = user_profile.secondary_matches.filter(validate=True).values_list('user_1', flat=True)
+    print(primary_matches, secondary_matches)
 
     for profile in other_profiles:
-        if profile not in user_profile.primary_matches.all():
+        print(profile.id)
+        if (profile.id not in primary_matches) and (profile.id not in secondary_matches):
             return render(request, 'home.html', {'profile': profile})
     return render(request, 'home.html', {'profile': None})
 
@@ -74,7 +78,5 @@ def match_create(request):
 
 @login_required
 def match_list(request):
-    # matches = Match.object.all()
-    return render(request, 'match_list.html')
-
-# {'matches': matches}
+    matches = Match.object.all()
+    return render(request, 'match_list', {'matches': matches})

@@ -2,6 +2,7 @@
 {% block content %}
 
 <section>
+{% if profile is not None %}
     <div class='match-carousel-div'>
         <h1>Connect with: {{profile.user.first_name}} {{profile.user.last_name}}</h1>
         <img class='profile-image' src="{{profile.profile_image.url}}"/>
@@ -16,10 +17,8 @@
         <button class="connect-btn" id="{{profile.id}}">Connect</button>
         <button class="pass-btn" value='refresh page' onClick="location.href=location.href">Not right now</button>
     </div>
-<section>
-
 {% else %}
     <h1>Sorry, no matches currently available. Please try again later.</h1>
 {% endif %}
-
+<section>
 {% endblock %}
