@@ -9,7 +9,7 @@
         <form action='{% url "login" %}' method='POST'>
             {% csrf_token %}
             <p>
-                <label for='username'>Username</label>
+                <label for='username'>Email</label>
                 <input type='text' name='username' required maxlength="25" minlength="2" />
             </p>
             <p>
