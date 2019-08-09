@@ -18,7 +18,8 @@
             <ul class='header-ul'>
 
         {% if user.is_authenticated %}
-            <p class='welcome-p'>Welcome, {{user.first_name}}</p>
+
+                <p class='welcome-p' style='display: inline-block'>Welcome, {{user.first_name}}</p>
                 <li class='header-li'><a href='{% url "profile" %}'>Profile</a></li>
                 <li class='header-li'><a href='{% url "match_list" %}'>Matches</a></li>
                 <li class='header-li'><a href='{% url "logout" %}'>Logout</a></li>
