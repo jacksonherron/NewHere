@@ -17,13 +17,13 @@ class Profile(models.Model):
     profile_image = models.ImageField(upload_to='images/', null=True, blank=True, default='images/blank-profile-picture.png')
 
     def __str__(self):
-        return self.user.username
+        return f'{self.user.first_name} {self.user.last_name}'
 
 class Match(models.Model):
     user_1 = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='primary_matches')
     user_2 = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='secondary_matches')
     validate = models.BooleanField(default=False)
-    time_stamp = models.DateTimeField(auto_now_add=True)
+    time_stamp = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.user_1.user.username} and {self.user_2.user.username}'
