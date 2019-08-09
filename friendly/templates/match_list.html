@@ -1,12 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<section class='matches-section'>
 {% if primary_matches is not None %}
 {% for match in primary_matches %}
 
-    <a href="{% url 'match_detail' pk=match.pk %}">
-        <p>{{match.user_2}}</p>
-    </a>
+    <div class='matches'>
+        <a href="#">
+            <p>{{match.user_2}}</p>
+            <p>You were matched on {{match.time_stamp}} </p>
+        </a>
+    </div>
 
 {% endfor %}
 {% endif %}
@@ -14,9 +18,12 @@
 {% if secondary_matches is not None %}
 {% for match in secondary_matches %}
 
-    <a href="{% url 'match_detail' pk=match.pk %}">
-        <p>{{match.user_1}}</p>
-    </a>
+    <div class='matches'>
+        <a href="#">
+            <p>{{match.user_1}}</p>
+            <p>You were matched on {{match.time_stamp}} </p>
+        </a>
+    </div>
 
 {% endfor %}
 {% else %}
@@ -24,4 +31,7 @@
     <p>Sorry, You have no matches =(</p>
 
 {% endif %}
+
+</section>
+
 {% endblock %}

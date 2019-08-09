@@ -60,7 +60,7 @@ def match_create(request):
     user_1 = Profile.objects.get(user=request.user)
     user_2 = Profile.objects.get(id=request.POST.get('profile_id'))
     try:
-        match = Match.objects.filter(user_1=user_2, user_2=user_1)
+        match = Match.objects.get(user_1=user_2, user_2=user_1)
     except:
         match = None
     if match:

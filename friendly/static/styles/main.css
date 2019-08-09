@@ -86,10 +86,19 @@ body {
   padding: 0;
 }
 
+.profile-h1 {
+  margin: 2rem;
+  font-size: 3em;
+  text-align: center;
+}
+
+.profile-h2 {
+  margin: 1rem 0 0 1rem;;
+}
+
 .profile-p {
   font-size: 20px;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin: 1em;
 }
 
 .welcome-p {
@@ -113,13 +122,12 @@ body {
   background: rgba(255,255, 255,.8);
   max-width: 40vw;
   border: 1px solid black;
-  /* border-radius: 10px; */
   margin: 25px 25px;
   text-align: center;
 }
 
 .home-page-a {
-  padding: 10px 0 0 10px;
+  padding: 10px 0 0 15px;
   font-family: 'Lobster Two', cursive, sans-serif;
   font-size: 3em;
 }
@@ -128,10 +136,11 @@ body {
   background-color: lightblue;
   padding: 1em;
   border: 1px solid black;
+  margin: 0 5px;
 }
 
 .header-ul {
-  margin: 0 10px 0 0;
+  margin-right: 20px;
 }
 
 .header-nav a {
@@ -173,4 +182,16 @@ a:hover {
 .profile-image {
   min-width: 20vw;
   max-width: 20vw;
+}
+
+.matches {
+  border: 1px solid black;
+  background-color: rgba(255,255,255,.8);
+  max-width: 25vw;
+  margin: 30px 0 0 150px;
+  padding: 10px 25px;
+}
+
+.matches-section {
+  margin: 100px;
 }
