@@ -22,7 +22,6 @@ def profile(request):
     profile = Profile.objects.get(user=request.user)
     return render(request, 'profile.html', {'profile': profile})
 
-
 @login_required
 def profile_edit(request):
     if Profile.objects.filter(user=request.user).exists():
