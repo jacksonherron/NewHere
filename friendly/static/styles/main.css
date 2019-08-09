@@ -109,6 +109,15 @@ body {
   margin-bottom: 20px;
 }
 
+.body-h1 {
+  background: rgba(255,255, 255,.8);
+  max-width: 40vw;
+  border: 1px solid black;
+  /* border-radius: 10px; */
+  margin: 25px 25px;
+  text-align: center;
+}
+
 .home-page-a {
   padding: 10px 0 0 10px;
   font-family: 'Lobster Two', cursive, sans-serif;
@@ -119,6 +128,10 @@ body {
   background-color: lightblue;
   padding: 1em;
   border: 1px solid black;
+}
+
+.header-ul {
+  margin: 0 10px 0 0;
 }
 
 .header-nav a {
