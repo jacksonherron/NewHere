@@ -45,7 +45,7 @@ connectBtn.on('click', function(event){
             'profile_id': connectBtn.attr('id')
         },
         success: function(response){
-            $(response).insertAfter(connectBtn);
+            connectBtn.append(response)
         }
     });
 });

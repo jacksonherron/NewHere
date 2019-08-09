@@ -16,21 +16,16 @@ def landing_page(request):
 
 @login_required
 def home(request):
-    max_id = Profile.objects.all().aggregate(max_id=Max("id"))['max_id']
-    while(True):
-        pk = randint(1, max_id)
-        try:
-            profile = Profile.objects.get(pk=pk)
-        except:
-            profile = None
-        if profile:
-            if profile.user != request.user:
-                break
-    return render(request, 'home.html', {'profile': profile})
+    user_profile = Profile.objects.get(user=request.user)
+    other_profiles = Profile.objects.exclude(user=request.user)
+
+    for profile in other_profiles:
+        if profile not in user_profile.primary_matches.all():
+            return render(request, 'home.html', {'profile': profile})
+    return render(request, 'home.html', {'profile': None})
 
 @login_required
 def profile(request):
-    user = request.user
     profile = Profile.objects.get(user=request.user)
     return render(request, 'profile.html', {'profile': profile})
 
