@@ -20,6 +20,10 @@ h1 {
   margin: 0;
 }
 
+ul {
+  padding: 0;
+}
+
 .match-carousel-div {
   background: rgba(255,255, 255,.8);
   max-width: 50vw;
@@ -101,9 +105,9 @@ h1 {
 .welcome-p {
   color: black;
   font-size: 2em;
-  padding-right: 1em;
+  padding: 0 2rem;
   margin: 0;
-  vertical-align: -15%;
+  vertical-align: 15%;
 }
 
 .accounts-p {
@@ -136,13 +140,18 @@ h1 {
   color: whitesmoke;
 }
 
-.header-nav {
+header {
   background: linear-gradient(180deg, #50a777, #6dc43b);
+}
+
+.header-nav {
+  /* background: linear-gradient(180deg, rgba(90,90,90,.7), rgba(70,70,70,.3)); */
+  display: inline-block;
+  float: right;
 }
 
 .header-ul {
   margin: 0;
-  float: right;
 }
 
 .header-li {
@@ -158,10 +167,16 @@ h1 {
   color: black;
 }
 
+/* .header-li.active a, nav .header-li:hover a {
+  text-decoration: none;
+  color: white;
+  background: #444;
+} */
+
 .header-li.active a, nav .header-li:hover a {
   text-decoration: none;
-  color: #ddd;
-  background: #444;
+  color: whitesmoke;
+  background: linear-gradient(180deg, rgba(50,50,50,.7), rgba(50,50,50,.3));
 }
 
 .profile-image {

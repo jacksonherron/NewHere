@@ -100,3 +100,5 @@ def match_detail(request, pk):
         match_profile = match.user_1
     return render(request, 'match_detail.html', {'match_profile': match_profile, 'match': match, 'messages': messages})
     
+# @login_required
+# def messages(request, pk):
