@@ -24,15 +24,17 @@
 
     <div class='messages-div'>
     <p class='messages-p'>Messages:</p>
-    <div clsas='messages'>
+    <div class='messages'>
 
         {% if messages is not None %}
         {% for message in messages %}
-        {% if author %}
+        {% if author == author %}
 
-            <p>From {{author}}: {{messages.content}} {{message.time_stamp}}</p>
+            <p>From {{match.user_1}}: {{message.content}}</p>
+            <p>{{message.time_stamp}}</p>
         {% else %}
-            <p>From{{match}}: {{messages.content}}, posted at: {{messages.time_stamp}}</p>
+            <p>From {{match.user_2}}: {{message.content}}</p>
+            <p> posted at: {{message.time_stamp}}</p>
 
         {% endif %}
         {% endfor %}
