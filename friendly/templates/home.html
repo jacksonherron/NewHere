@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<section>
+<section class='main-section'>
 {% if profile is not None %}
     <div class='match-carousel-div'>
         <h1>Connect with: {{profile.user.first_name}} {{profile.user.last_name}}</h1>

@@ -14,11 +14,10 @@
 <body>
     <nav class='header-nav'>
         <a class='home-page-a' href='{% url "home" %}'>NewHere</a>
-        <section>
+        {% comment %} <section> {% endcomment %}
             <ul class='header-ul'>
 
         {% if user.is_authenticated %}
-
                 <p class='welcome-p' style='display: inline-block'>Welcome, {{user.first_name}}</p>
                 <li class='header-li'><a href='{% url "profile" %}'>Profile</a></li>
                 <li class='header-li'><a href='{% url "match_list" %}'>Matches</a></li>
@@ -29,7 +28,7 @@
 
         {% endif %}
             </ul>
-        </section>
+        {% comment %} </section> {% endcomment %}
     </nav>
     {% block content %} {% endblock %}
 </body>
