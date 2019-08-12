@@ -248,4 +248,20 @@ header {
   border-radius: 10px;
   margin-left: 335px;
   min-width: 60vw;
+  text-align: center;
+}
+
+.message-button-div {
+  text-align: center;
+  margin: 2em;
+}
+
+.message-button {
+  border: 1px solid black;
+  padding: 1em;
+  background: lightgrey;
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  margin: 0 auto;
 }
