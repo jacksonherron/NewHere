@@ -219,7 +219,7 @@ header {
   max-width: 60vw;
   max-height: 30vh;
   text-align: center;
-  margin: 0 auto;
+  margin: 10px auto;
   border-radius: 10px;
   background: rgba(255,255, 255,.8);
 }
@@ -227,4 +227,25 @@ header {
 .messages-p {
   font-size: 20px;
   padding-top: 10px;
+  margin: 0;
+}
+
+.message-label {
+  font-size: 20px;
+}
+
+.message-input {
+  min-width: 52vw;
+  min-height: 30px;
+  max-width: 52vw;
+  border-radius: 10px;
+}
+
+.message-form-div {
+  background: rgba(255,255, 255,1);
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 10px;
+  margin-left: 335px;
+  min-width: 60vw;
 }

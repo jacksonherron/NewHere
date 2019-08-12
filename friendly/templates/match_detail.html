@@ -23,9 +23,26 @@
     </div> {% endcomment %}
     <div class='messages-div'>
     <p class='messages-p'>Messages:</p>
+
+    <div clsas='messages'>
         {% if messages is not None %}
-        
+        {% for message in messages %}
+        {% if user.1 %}
+            <p>From {{user.1}}: {{message}}</p>
+
+        {% else %}
+            <p>From{{user.2}}: {{message}}
         {% endif %}
+
+        {% endfor %}
+        {% endif %}
+    </div>
+    </div>
+    <div class='message-form-div'>
+        <form class='message-form' method='POST'>
+            <label class='message-label' for='message:'>Send Message:</label>
+            <input class='message-input' type='text' name='message' />
+        </form>
     </div>
 </section>
 
