@@ -3,14 +3,17 @@
 
 <section>
     <div class='match-div'>
+
         <h1 class='profile-h1'>{{match_profile.user.first_name}} {{match_profile.user.last_name}}</h1>
         <img class='profile-image' src="{{match_profile.profile_image.url}}"/>
+
         <div class='match-info-div'>
         <p class='profile-p'>You matched on: {{match.time_stamp}}</p>
         <p class='profile-p'>Gender Identity: {{match_profile.gender_identity}}</p>
         <p class='profile-p'>Identities: {{match_profile.identities|join:', '}}</p>
         <p class='profile-p'>Zip Code: {{match_profile.zip_code}}</p>
         </div>
+
         <div class='match-info-div'>
         <p class='profile-p'>Languages: {{match_profile.languages|join:', '}}</p>
         <p class='profile-p'>Interests: {{match_profile.interests|join:', '}}</p>
@@ -18,32 +21,26 @@
         <p class='profile-p'>Personal Description: {{match_profile.personal_description}}</p>
         </div>
     </div>
-    {% comment %} <div class='match-profile-image'>
-        <img class='profile-image' src="{{match_profile.profile_image.url}}"/>
-    </div> {% endcomment %}
+
     <div class='messages-div'>
     <p class='messages-p'>Messages:</p>
-
     <div clsas='messages'>
+
         {% if messages is not None %}
         {% for message in messages %}
-        {% if user.1 %}
-            <p>From {{user.1}}: {{message}}</p>
+        {% if author %}
 
+            <p>From {{author}}: {{messages.content}} {{message.time_stamp}}</p>
         {% else %}
-            <p>From{{user.2}}: {{message}}
-        {% endif %}
+            <p>From{{match}}: {{messages.content}}, posted at: {{messages.time_stamp}}</p>
 
+        {% endif %}
         {% endfor %}
         {% endif %}
+    </div>  
     </div>
-    </div>
-    <div class='message-form-div'>
-        <form class='message-form' method='POST'>
-            <label class='message-label' for='message:'>Send Message:</label>
-            <input class='message-input' type='text' name='message' />
-        </form>
-    </div>
-</section>
+        <a class='message-button' href="{% url 'message' pk=match.pk %}"> Send Message</a>
 
+
+</section>
 {% endblock %}

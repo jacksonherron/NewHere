@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.decorators import login_required
-from .forms import ProfileForm
+from .forms import ProfileForm, MessageForm
 from .models import Profile, Match, Message
 from random import randint
 from django.db.models import Max
@@ -91,7 +91,7 @@ def match_detail(request, pk):
     user_profile = Profile.objects.get(user=user)
     match = Match.objects.get(id=pk)
     try:
-        messages = Message.objects.filter(match=match)
+        messages = Message.objects.filter(match=match)            
     except:
         messages = None
     if match.user_1 == user_profile:
@@ -99,6 +99,10 @@ def match_detail(request, pk):
     else:
         match_profile = match.user_1
     return render(request, 'match_detail.html', {'match_profile': match_profile, 'match': match, 'messages': messages})
-    
-# @login_required
-# def messages(request, pk):
+
+@login_required
+def message(request, pk):
+    author = request.user
+    match = Match.objects.get(id=pk)
+    form = MessageForm
+    return render(request, 'message.html', {'form': form, 'author':author, 'match':match})

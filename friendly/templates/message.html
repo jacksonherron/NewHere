@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class='message-form-section'>
+    {% if form %}
+        <form method='POST' class='message-form'>
+    {% csrf_token %}
+            {{form.as_p}}
+            <button class='send-message-button' type='submit'>Send Message</button>
+        </form>
+    {% endif %}
+</section>
+
+{% endblock %}
