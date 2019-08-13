@@ -2,49 +2,47 @@
 {% block content %}
 
 <section>
-    <div class='match-div'>
 
-        <h1 class='profile-h1'>{{match_profile.user.first_name}} {{match_profile.user.last_name}}</h1>
+    <div class='profile-container'>
+        <h1 class="profile-h1">{{match_profile.user.first_name}} {{match_profile.user.last_name}}</h1>
         <img class='profile-image' src="{{match_profile.profile_image.url}}"/>
-
-        <div class='match-info-div'>
-        <p class='profile-p'>You matched on: {{match.time_stamp}}</p>
-        <p class='profile-p'>Gender Identity: {{match_profile.gender_identity}}</p>
-        <p class='profile-p'>Identities: {{match_profile.identities|join:', '}}</p>
-        <p class='profile-p'>Zip Code: {{match_profile.zip_code}}</p>
+        
+        <div class='profile-info'>
+            <p class='profile-p'>Matched on:</p><p>{{match.time_stamp}}</p>
         </div>
-
-        <div class='match-info-div'>
-        <p class='profile-p'>Languages: {{match_profile.languages|join:', '}}</p>
-        <p class='profile-p'>Interests: {{match_profile.interests|join:', '}}</p>
-        <p class='profile-p'>Religion: {{match_profile.religions|join:', '}}</p>
-        <p class='profile-p'>Personal Description: {{match_profile.personal_description}}</p>
+        <div class='profile-info'>
+            <p class='profile-p'>Language(s):</p><p>{{match_profile.languages|join:', '}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Heritage(s):</p><p>{{match_profile.identities|join:', '}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Interest(s):</p><p>{{match_profile.interests|join:', '}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Religion(s):</p><p>{{match_profile.religions|join:', '}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Narrative:</p><p>{{match_profile.personal_description}}</p>
         </div>
     </div>
 
-    <div class='messages-div'>
-    <p class='messages-p'>Messages:</p>
-    <div class='messages'>
-
+    <div class='message-container'>
         {% if messages is not None %}
-        {% for message in messages %}
-        {% if author == author %}
-
-            <p>From {{match.user_1}}: {{message.content}}</p>
-            <p>{{message.time_stamp}}</p>
-        {% else %}
-            <p>From {{match.user_2}}: {{message.content}}</p>
-            <p> posted at: {{message.time_stamp}}</p>
-
+            {% for message in messages %}
+                <div class="message">
+                    <span class="message-author">{{message.author}}: </span>
+                    <span class="message-content">{{message.content}}</span>
+                </div>
+                <div class="message-timestamp">{{message.time_stamp}}</div>
+            {% endfor %}
         {% endif %}
-        {% endfor %}
-        {% endif %}
-    </div>  
+        <form action="{% url 'message_create' match.pk %}" method ="post" class="message-form">
+            {% csrf_token %}
+            <textarea type="text" name="message_content" class="message-text"></textarea>
+            <button type="submit" class="message-btn">Message</button>
+        </form>
     </div>
-    <div class='message-button-div'>
-        <a class='message-button' href="{% url 'message' pk=match.pk %}"> Send Message</a>
-    </div>
-
 
 </section>
 {% endblock %}

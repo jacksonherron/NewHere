@@ -104,8 +104,10 @@ def match_detail(request, pk):
     return render(request, 'match_detail.html', {'match_profile': match_profile, 'match': match, 'messages': messages})
 
 @login_required
-def message(request, pk):
-    author = request.user
+def message_create(request, pk):
+    author = Profile.objects.get(user=request.user)
     match = Match.objects.get(id=pk)
-    form = MessageForm
-    return render(request, 'message.html', {'form': form, 'author':author, 'match':match})
+    content = request.POST.get("message_content")
+    message = Message(author=author, match=match, content=content)
+    message.save()
+    return redirect('match_detail', pk)

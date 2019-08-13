@@ -10,5 +10,5 @@ urlpatterns = [
     path('match/create/', views.match_create, name='match_create'),
     path('match/list/', views.match_list, name='match_list'),
     path('match/detail/<int:pk>', views.match_detail, name='match_detail'),
-    path('match/detail/<int:pk>/message/', views.message, name='message'),
+    path('match/detail/<int:pk>/message/', views.message_create, name='message_create'),
 ]
