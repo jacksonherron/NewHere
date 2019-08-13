@@ -4,26 +4,26 @@
 <section class='matches-section'>
 {% if primary_matches is not None %}
 {% for match in primary_matches %}
-
-    <div class='matches'>
-        <a class='match-a' href="{% url 'match_detail' pk=match.pk %}">
-            <p>{{match.user_2}}</p>
-            <p>You were matched on {{match.time_stamp}} </p>
-        </a>
-    </div>
+    <a class='match-a' href="{% url 'match_detail' pk=match.pk %}">
+        <div class='matches'>
+            <h1>{{match.user_2}}</h1>
+            <img src="{{match.user_1.profile_image.url}}" class="match-img"/>
+            <p class="match-time">Matched on {{match.time_stamp}} </p>
+        </div>
+    </a>
 
 {% endfor %}
 {% endif %}
 
 {% if secondary_matches is not None %}
 {% for match in secondary_matches %}
-
-    <div class='matches'>
-        <a class='match-a' href="{% url 'match_detail' pk=match.pk %}">
-            <p>{{match.user_1}}</p>
-            <p>You were matched on {{match.time_stamp}} </p>
-        </a>
-    </div>
+    <a class='match-a' href="{% url 'match_detail' pk=match.pk %}">
+        <div class='matches'>
+            <h1 class="match-name">{{match.user_1}}</h1>
+            <img src="{{match.user_1.profile_image.url}}" class="match-img"/>
+            <p class="match-time">Matched on {{match.time_stamp}} </p>
+        </div>
+    </a>
 
 {% endfor %}
 {% else %}

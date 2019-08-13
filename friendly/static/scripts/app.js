@@ -46,10 +46,7 @@ connectBtn.on('click', function(event){
             'profile_id': connectBtn.attr('id')
         },
         success: function(response){
-            // Notify them of the response!!
             $(`<h1 class="response">${response}</h1>`).insertBefore($('.button-container'))
-            connectBtn.append(response)
-            // ^^ This is just a placeholder for now...
             setTimeout(() => window.location.reload(), 2000)
         }
     });

@@ -8,12 +8,19 @@ body {
   background-repeat: no-repeat;
 	background-color: lightblue;
   margin: 0;
-  max-height: 100vh;
-  max-width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
+  overscroll-behavior: none;
+}
+
+.main-section {
+  display: flex;
+  justify-content: center;
 }
 
 .response {
   text-align: center;
+  padding: 5px;
 }
 
 h1 {
@@ -26,18 +33,28 @@ ul {
 
 .match-carousel-div {
   background: rgba(255,255, 255,.8);
-  max-width: 50vw;
+  max-width: 600px;
   border: 1px solid black;
   border-radius: 10px;
-  margin: 150px auto;
+  margin: 10px;
+  padding: 10px;
+}
+
+.profile-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-form-div {
   background: rgba(255,255, 255,.8);
-  max-width: 35vw;
+  max-width: 600px;
   border: 1px solid black;
   border-radius: 10px;
-  margin: 100px auto;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-section {
@@ -73,32 +90,39 @@ ul {
   margin-bottom: 20px;
 }
 
+.button-container {
+  display: flex;
+}
+
 .connect-btn {
   height: 40px;
-  width: calc(50%);
+  width: calc(49.5%);
   border-radius: 0 0 0 10px;
   padding: 0;
 }
 
 .pass-btn {
   height: 40px;
-  width: calc(49%);
+  width: calc(49.5%);
   border-radius: 0 0 10px 0;
   padding: 0;
 }
 
 .match-detail-section {
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
 .profile-container {
   background: rgba(255,255, 255,.8);
   max-width: 600px;
+  min-width: 280px;
   border: 1px solid black;
   border-radius: 10px;
-  margin: 20px;
   padding: 20px;
+  margin: 20px;
 }
 
 .message-container {
@@ -106,7 +130,8 @@ ul {
   justify-content: space-between;
   flex-direction: column;
   background: rgba(255,255, 255,.8);
-  max-width: 300px;
+  max-width: 600px;
+  min-width: 300px;
   border: 1px solid black;
   border-radius: 10px;
   margin: 20px;
@@ -117,8 +142,13 @@ ul {
   margin-top: 10px;
 }
 
+.message-form {
+  width: calc(100%);
+  margin-top: 20px;
+}
+
 .message-text {
-  width: calc(100%)
+  width: calc(100%);
 }
 
 .message-btn {
@@ -149,7 +179,12 @@ ul {
 
 .profile-info p {
   font-size: 1.2em;
-  margin: .25em 0;
+  margin: .25em;
+}
+
+.profile-p {
+  width: 100px;
+  margin-right: 20px!important;
 }
 
 
@@ -184,7 +219,9 @@ ul {
   background: rgba(255,255, 255,.8);
   max-width: 40vw;
   border: 1px solid black;
-  margin: 25px 25px;
+  margin: 25px;
+  border-radius: 10px;
+  padding: 10px;
   text-align: center;
 }
 
@@ -194,20 +231,17 @@ ul {
 
 header {
   background: linear-gradient(180deg, #50a777, #6dc43b);
+  display: flex;
+  justify-content: space-between;
 }
 
 .header-h1 {
   display: inline-block;
-  padding: 0 0 0 15px;
+  padding: 0 15px;
   font-family: 'Lobster Two', cursive, sans-serif;
   font-size: 3em;
 }
 
-.header-nav {
-  /* background: linear-gradient(180deg, rgba(90,90,90,.7), rgba(70,70,70,.3)); */
-  display: inline-block;
-  float: right;
-}
 
 .header-ul {
   margin: 0;
@@ -226,12 +260,6 @@ header {
   color: black;
 }
 
-/* .header-li.active a, nav .header-li:hover a {
-  text-decoration: none;
-  color: white;
-  background: #444;
-} */
-
 .header-li.active a, nav .header-li:hover a {
   text-decoration: none;
   color: whitesmoke;
@@ -239,20 +267,34 @@ header {
 }
 
 .profile-image {
-  min-width: 10vw;
-  max-width: 10vw;
+  max-width: 250px;
+  margin: 10px auto;
 }
 
 .matches {
   border: 1px solid black;
   background-color: rgba(255,255,255,.8);
-  max-width: 25vw;
-  margin: 30px 0 0 150px;
+  max-width: 300px;
+  margin: 10px;
   padding: 10px 25px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.match-time {
+  justify-self: flex-end;
 }
 
 .matches-section {
-  margin: 100px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.match-img {
+  max-width: 200px;
 }
 
 .match-a {
@@ -271,74 +313,32 @@ header {
 .match-info-div {
   display: inline-block;
 }
-
-.messages-div {
-  min-width: 30vw;
-  min-height: 20vh;
-  max-width: 60vw;
-  max-height: 30vh;
-  text-align: center;
-  margin: 10px auto;
-  border-radius: 10px;
-  background: rgba(255,255, 255,.8);
-}
-
-.messages-p {
-  font-size: 20px;
-  padding-top: 10px;
-  margin: 0;
-}
-
-.message-label {
-  font-size: 20px;
-}
-
-.message-input {
-  min-width: 52vw;
-  min-height: 30px;
-  max-width: 52vw;
-  border-radius: 10px;
-}
-
-.message-form-div {
-  background: rgba(255,255, 255,1);
-  display: inline-block;
-  border: 1px solid black;
-  border-radius: 10px;
-  margin-left: 335px;
-  min-width: 60vw;
-  text-align: center;
-}
-
-.message-button-div {
-  text-align: center;
-  margin: 2em;
-}
-
-.message-button {
-  border: 1px solid black;
-  padding: 1em;
-  background: linear-gradient(180deg, #50a777, #6dc43b);
-  text-decoration: none;
-  color: black;
-  text-align: center;
-  margin: 0 auto;
-}
-
 .about-header {
   text-align: center;
+  margin: 10px;
+  color: whitesmoke;
+}
+
+.about-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .about-images {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
 }
 
 .about-description{
   background-color: white; 
-  margin:48px 25% 64px 25%;
-  padding: 5px;
-  border-radius: 4px; 
+  margin: 20px;
+  padding: 10px;
+  border-radius: 4px;
+  max-width: 600px;
 }
 
 .about-developer{
@@ -347,7 +347,7 @@ header {
   border-radius: 4px; 
   padding: 0 8px;
   width: 272px;
-  margin: 8px auto;
+  margin: 25px;
 }
 
 .about-developer p {
@@ -359,16 +359,6 @@ header {
     display: flex;
     flex-direction: column;
   } 
-  .profile-container {
-    background: rgba(255,255, 255,.8);
-    max-width: 500px;
-    border: 1px solid black;
-    border-radius: 10px;
-    margin: 100px auto;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
 }
 
 @media only screen and (min-width: 900px) {
@@ -377,11 +367,6 @@ header {
     right: 5%; 
     top:10px;
   }
-  /* .welcome-p {
-    position: absolute;
-    top: 25px;
-    right: 36%; 
-  } */
 }
 @media only screen and (max-width: 600px) {
   .welcome-p {
@@ -397,4 +382,27 @@ header {
     top: 40px;
     right: 55%; 
   }
+}
+
+@media only screen and (min-width: 200px) and (max-width: 600px) {
+
+  header {
+    background: linear-gradient(180deg, #50a777, #6dc43b);
+  }
+  
+  .header-h1 {
+    font-size: 2em;
+  }
+
+  .header-li {
+    font-size: 16px;
+  }
+  
+  .header-nav .header-li a {
+    display: block;
+    padding: 2px;
+    text-decoration: none;
+    color: black;
+  }
+
 }

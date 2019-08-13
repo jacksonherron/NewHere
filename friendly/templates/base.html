@@ -15,18 +15,14 @@
     <header>
         <h1 class='header-h1'>NewHere</h1>
 
-        {% if user.is_authenticated %}
-        <p class='welcome-p' style='display: inline-block'>Welcome, {{user.first_name}}</p>
-        {% endif %}
-
         <nav class='header-nav'>
             <ul class='header-ul'>
-                <li class='header-li'><a href='{% url "home" %}'>Home</a>
                 <li class='header-li'><a href='{% url "about" %}'>About Us</a>
 
         {% if user.is_authenticated %}
-                <li class='header-li'><a href='{% url "profile" %}'>Profile</a></li>
+                <li class='header-li'><a href='{% url "home" %}'>Match</a>
                 <li class='header-li'><a href='{% url "match_list" %}'>Matches</a></li>
+                <li class='header-li'><a href='{% url "profile" %}'>Profile</a></li>
                 <li class='header-li'><a href='{% url "logout" %}'>Logout</a></li>
         {% else %}
                 <li class='header-li'><a href='{% url "register" %}'>Signup</a></li>
