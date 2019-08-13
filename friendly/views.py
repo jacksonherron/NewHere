@@ -14,6 +14,9 @@ def base(request):
 def landing_page(request):
     return render(request, 'landing_page.html')
 
+def about(request):
+    return render(request, 'about.html')
+
 @login_required
 def home(request):
     user_profile = Profile.objects.get(user=request.user)

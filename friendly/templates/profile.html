@@ -4,16 +4,35 @@
 <section>
     <div class='profile-form-div'>
         <h1 class='profile-h1'>Welcome {{profile.user.first_name}}!</h1>
+        <img class='profile-image' src="{{profile.profile_image.url}}"/>
         <h2 class='profile-h2'>Your profile Information:</h2>
-        <p class='profile-p'>Email: {{profile.user.email}}</p>
-        <p class='profile-p'>Name: {{profile.user.first_name}} {{profile.user.last_name}}</p>
-        <p class='profile-p'>Gender Identity: {{profile.gender_identity}}</p>
-        <p class='profile-p'>Identities: {{profile.identities|join:', '}}</p>
-        <p class='profile-p'>Zip Code: {{profile.zip_code}}</p>
-        <p class='profile-p'>Languages: {{ profile.languages|join:', '}}</p>
-        <p class='profile-p'>Interests: {{profile.interests|join:', '}}</p>
-        <p class='profile-p'>Religion: {{profile.religions|join:', '}}</p>
-        <p class='profile-p'>Personal Description: {{profile.personal_description}}</p>
+        <div class='profile-info'>
+            <p class='profile-p'>Name: {{profile.user.first_name}} {{profile.user.last_name}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Email: {{profile.user.email}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Zip Code: {{profile.zip_code}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Gender: {{profile.gender_identity}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Heritage(s): {{profile.identities|join:', '}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Language(s): {{ profile.languages|join:', '}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Interest(s): {{profile.interests|join:', '}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Religion(s): {{profile.religions|join:', '}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Narrative: {{profile.personal_description}}</p>
+        </div>
         <button class='profile-edit-button' onclick="window.location.href = 'edit/'">Edit Profile</button>
     </div>
         {% comment %} <p>Profile Image: <img class='profile-image' src="{{profile.profile_image.url}}"/></p> {% endcomment %}

@@ -13,15 +13,16 @@
 </head>
 <body>
     <header>
-        <a class='home-page-a' href='{% url "home" %}'>NewHere</a>
+        <h1 class='header-h1'>NewHere</h1>
 
         {% if user.is_authenticated %}
         <p class='welcome-p' style='display: inline-block'>Welcome, {{user.first_name}}</p>
-
         {% endif %}
 
         <nav class='header-nav'>
             <ul class='header-ul'>
+                <li class='header-li'><a href='{% url "home" %}'>Home</a>
+                <li class='header-li'><a href='{% url "about" %}'>About Us</a>
 
         {% if user.is_authenticated %}
                 <li class='header-li'><a href='{% url "profile" %}'>Profile</a></li>
@@ -30,7 +31,6 @@
         {% else %}
                 <li class='header-li'><a href='{% url "register" %}'>Signup</a></li>
                 <li class='header-li'><a href='{% url "login" %}'>Login</a></li>
-
         {% endif %}
             </ul>
         </nav>

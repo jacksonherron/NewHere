@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-/* :root {
-
-} */
-
 body {
   background-image: url('../pictures/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg');
   background-size: cover;
@@ -97,9 +93,19 @@ ul {
   margin: 1rem 0 0 1rem;;
 }
 
-.profile-p {
+.profile-info p {
+  font-size: 1.2em;
+  margin: .25em 0;
+}
+
+
+/* .profile-p {
   font-size: 20px;
   margin: 1em;
+} */
+
+.profile-info {
+  display: flex;
 }
 
 .welcome-p {
@@ -128,13 +134,13 @@ ul {
   text-align: center;
 }
 
-.home-page-a {
+/* .home-page-a {
   padding: 10px 0 0 15px;
   font-family: 'Lobster Two', cursive, sans-serif;
   font-size: 3em;
   color: black;
   text-decoration: none;
-}
+} */
 
 .home-page-a:hover {
   color: whitesmoke;
@@ -142,6 +148,13 @@ ul {
 
 header {
   background: linear-gradient(180deg, #50a777, #6dc43b);
+}
+
+.header-h1 {
+  display: inline-block;
+  padding: 0 0 0 15px;
+  font-family: 'Lobster Two', cursive, sans-serif;
+  font-size: 3em;
 }
 
 .header-nav {
@@ -264,4 +277,77 @@ header {
   color: black;
   text-align: center;
   margin: 0 auto;
+}
+
+.about-header {
+  text-align: center;
+}
+
+.about-images {
+  display: flex;
+  justify-content: space-around;
+}
+
+.about-description{
+  background-color: white; 
+  margin:48px 25% 64px 25%;
+  padding: 5px;
+  border-radius: 4px; 
+}
+
+.about-developer{
+  background-color: white;
+  text-align: center; 
+  border-radius: 4px; 
+  padding: 0 8px;
+  width: 272px;
+  margin: 8px auto;
+}
+
+.about-developer p {
+  margin: 4px 0;
+}
+
+@media only screen and (max-width: 900px) {
+  .about-images {
+    display: flex;
+    flex-direction: column;
+  } 
+  .profile-container {
+    background: rgba(255,255, 255,.8);
+    width: 60%; 
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 100px auto;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  #navButtons{
+    position: absolute; 
+    right: 5%; 
+    top:10px;
+  }
+  /* .welcome-p {
+    position: absolute;
+    top: 25px;
+    right: 36%; 
+  } */
+}
+@media only screen and (max-width: 600px) {
+  .welcome-p {
+    position: absolute;
+    top: 25px;
+    right: 40%; 
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px) {
+  .welcome-p {
+    position: absolute;
+    top: 40px;
+    right: 55%; 
+  }
 }
