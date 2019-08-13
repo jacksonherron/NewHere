@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="profile-section">
+    <div class='profile-form-div'>
+        <h1 class='profile-h1'>Welcome {{profile.user.first_name}}!</h1>
+        <img class='profile-image' src="{{profile.profile_image.url}}"/>
+        <h2 class='profile-h2'>Your profile Information:</h2>
+        <div class='profile-info'>
+            <p class='profile-p'>Name:</p><p>{{profile.user.first_name}} {{profile.user.last_name}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Email:</p><p>{{profile.user.email}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Zip Code:</p><p>{{profile.zip_code}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Gender:</p><p>{{profile.gender_identity}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Heritage(s):</p><p>{{profile.identities|join:', '}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Language(s):</p><p>{{ profile.languages|join:', '}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Interest(s):</p><p>{{profile.interests|join:', '}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Religion(s):</p><p>{{profile.religions|join:', '}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Narrative:</p><p>{{profile.personal_description}}</p>
+        </div>
+        <button class='profile-edit-button' onclick="window.location.href = 'edit/'">Edit Profile</button>
+    </div>
+        {% comment %} <p>Profile Image: <img class='profile-image' src="{{profile.profile_image.url}}"/></p> {% endcomment %}
+</section>
+
+{% endblock %}

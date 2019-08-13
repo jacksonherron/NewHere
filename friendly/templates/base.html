@@ -5,11 +5,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="{% static 'scripts/app.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous" defer></script>
+    <script src="{% static 'scripts/app.js' %}" defer></script>
+    <link href="https://fonts.googleapis.com/css?family=Lobster+Two&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'styles/main.css' %}" />
-    <title>Friendly</title>
+    <title>NewHere</title>
 </head>
 <body>
-    <h1>Friendly</h1>
+    <header>
+        <h1 class='header-h1'>NewHere</h1>
+
+        <nav class='header-nav'>
+            <ul class='header-ul'>
+                <li class='header-li'><a href='{% url "about" %}'>About Us</a>
+
+        {% if user.is_authenticated %}
+                <li class='header-li'><a href='{% url "home" %}'>Match</a>
+                <li class='header-li'><a href='{% url "match_list" %}'>Matches</a></li>
+                <li class='header-li'><a href='{% url "profile" %}'>Profile</a></li>
+                <li class='header-li'><a href='{% url "logout" %}'>Logout</a></li>
+        {% else %}
+                <li class='header-li'><a href='{% url "register" %}'>Signup</a></li>
+                <li class='header-li'><a href='{% url "login" %}'>Login</a></li>
+        {% endif %}
+            </ul>
+        </nav>
+    </header>
+    {% block content %} {% endblock %}
 </body>
 </html>

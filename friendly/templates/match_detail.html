@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class='match-detail-section'>
+
+    <div class='profile-container'>
+        <h1 class="profile-h1">{{match_profile.user.first_name}} {{match_profile.user.last_name}}</h1>
+        <img class='profile-image' src="{{match_profile.profile_image.url}}"/>
+
+        <div class='profile-info'>
+            <p class='profile-p'>Matched on: {{match.time_stamp}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Language(s): {{match_profile.languages|join:', '}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Heritage(s): {{match_profile.identities|join:', '}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Interest(s): {{match_profile.interests|join:', '}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Religion(s): {{match_profile.religions|join:', '}}</p>
+        </div>
+        <div class='profile-info'>
+            <p class='profile-p'>Narrative: {{match_profile.personal_description}}</p>
+        </div>
+    </div>
+
+    <div class='message-container'>
+        {% if messages is not None %}
+            <div class='messages'>
+                {% for message in messages %}
+                    <div class="message">
+                        <span class="message-author">{{message.author}}: </span>
+                        <span class="message-content">{{message.content}} </span>
+                    </div>
+                    <div class="message-timestamp">{{message.time_stamp}} </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <form class="message-form" action="{% url 'message_create' match.pk %}" method ="post">
+            {% csrf_token %}
+            <textarea class="message-text" type="text" name="message_content"></textarea>
+            <button type="submit" class="message-btn">Message</button>
+        </form>
+    </div>
+
+</section>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class='profile-form-section'>
+    {% if form %}
+        <form method='POST' class='profile-form'>
+    {% csrf_token %}
+            {{form.as_p}}
+            <button class='profile-save-button' type='submit'>save</button>
+        </form>
+    {% endif %}
+</section>
+
+{% endblock %}
