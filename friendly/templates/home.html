@@ -13,9 +13,10 @@
         <p class='profile-p'>Religion: {{profile.religions|join:', '}}</p>
         <p class='profile-p'>Personal Description: {{profile.personal_description}}</p>
         <p class='profile-p'>Zip Code: {{profile.zip_code}}</p>
-
-        <button class="connect-btn" id="{{profile.id}}">Connect</button>
-        <button class="pass-btn" value='refresh page' onClick="location.href=location.href">Not right now</button>
+        <div class='button-container'>
+            <button class="connect-btn" id="{{profile.id}}">Connect</button>
+            <button class="pass-btn" value='refresh page' onClick="location.href=location.href">Not right now</button>
+        </div>
     </div>
 {% else %}
     <h1 class='body-h1'>Sorry, no matches currently available. Please try again later.</h1>
