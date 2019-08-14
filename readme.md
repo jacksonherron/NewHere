@@ -8,7 +8,7 @@ General Info:
 NewHere is a social connection app aimed at empowering and welcoming newly arrived migrats to an area by way of connecting them to people, places, and respources with which they can build successful lives and enrich their communities.
 
 Technologies:
-HTML, CSS, Jinja, Django, PostgreSQL, Heroku
+HTML, CSS, Jinja, Django, PostgreSQL, jQuery + AJAX, Heroku
 
 Future Tasks:
 Add an option to delete profiles and matches.
