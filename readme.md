@@ -1,5 +1,8 @@
-Our Trello =)
+Trello:
 https://trello.com/b/jKtYz5nv/friendly
+
+Heroku:
+https://new-here-app.herokuapp.com/home/
 
 Project Name:
 NewHere
