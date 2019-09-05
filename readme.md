@@ -27,3 +27,9 @@ https://new-here-app.herokuapp.com/home/
 
 ##### Trello
 https://trello.com/b/jKtYz5nv/friendly
+
+#### Team
+
+Jackson Herron
+James Lyons
+Joseph Lister
