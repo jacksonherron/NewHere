@@ -1,11 +1,11 @@
 # NewHere
 
-## Link to Heroku
+### Link to Heroku
 https://new-here-app.herokuapp.com/home/
 
 NewHere is a social connection app aimed at empowering and welcoming newly arrived migrats to an area by way of connecting them to people, places, and respources with which they can build successful lives and enrich their communities.
 
-### Technologies Used:
+#### Technologies Used:
 
 - HTML
 - CSS
@@ -15,7 +15,7 @@ NewHere is a social connection app aimed at empowering and welcoming newly arriv
 - PostgreSQL
 - jQuery + AJAX
 
-### Future Tasks:
+#### Future Tasks:
 
 - Add an option to delete profiles and matches.
 - Update matching algorithms to match based on location
