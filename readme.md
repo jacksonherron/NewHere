@@ -2,7 +2,7 @@
 
 NewHere is a social connection app aimed at empowering and welcoming newly arrived migrants to an area by way of connecting them to people, places, and respources with which they can build successful lives and enrich their communities.
 
-#### Heroku Link
+#### Heroku Deployment
 
 https://new-here-app.herokuapp.com/home/
 
