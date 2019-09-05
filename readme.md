@@ -14,6 +14,7 @@ https://new-here-app.herokuapp.com/home/
 - Django
 - Jinja
 - PostgreSQL
+- bcrypt
 - jQuery + AJAX
 
 #### Future Tasks:
