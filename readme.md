@@ -30,6 +30,6 @@ https://trello.com/b/jKtYz5nv/friendly
 
 #### Team
 
-Jackson Herron
-James Lyons
-Joseph Lister
+- Jackson Herron
+- James Lyons
+- Joseph Lister
